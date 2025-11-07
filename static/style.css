@@ -1,0 +1,4 @@
+body { font-family: Arial, sans-serif; margin: 30px; background: #f9f9f9; }
+header, footer { text-align: center; }
+nav a { margin: 0 10px; text-decoration: none; color: #333; }
+button { background: #4CAF50; color: white; border: none; padding: 5px 10px; }
