@@ -3,21 +3,28 @@
 <h2>Favorite Programming Languages</h2>
 
 <form method="post">
-  <input type="text" name="language" placeholder="Language name">
+  <input type="text" name="language" placeholder="Add new language">
   <button type="submit" name="action" value="add">Add</button>
-  <button type="submit" name="action" value="delete">Delete</button>
+  <button type="submit" name="action" value="delete_selected">Delete Selected</button>
   <button type="submit" name="action" value="clear">Clear All</button>
   <button type="submit" name="action" value="sort">Sort</button>
+
+  <h3>Current Languages:</h3>
+  {% if languages %}
+  <ul>
+    {% for lang in languages %}
+      <li>
+        <input type="checkbox" name="selected_languages" value="{{ lang }}">
+        {{ loop.index }}. {{ lang }}
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p><em>No languages added yet.</em></p>
+  {% endif %}
 </form>
 
 {% if message %}
   <p><strong>{{ message }}</strong></p>
 {% endif %}
-
-<h3>Current Languages:</h3>
-<ul>
-     {% for lang in languages %}
-    <li>{{ loop.index }}. {{ lang }}</li>
-  {% endfor %}
-</ul>
 {% endblock %}
